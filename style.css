@@ -38,16 +38,17 @@
   color:red;
 }
 .sidebar-nav {
-    position: relative;;
+  float:right;
     top: 0;
-    width: 250px;
-    margin: 0;
     padding: 0;
     list-style: none;
     background-color: grey;
+    float:left;
 }
 
 .cityInfo{
   background-color:black;
   color:white;
+  clear:right;
+  float:right;
 }
