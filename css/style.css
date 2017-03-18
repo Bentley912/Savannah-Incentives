@@ -1,5 +1,10 @@
+body{
+  font-size:16px;
+}
+
 #bold{
-  color:red;
+  color:#FF9900;
+  font-weight: bold;
 }
 .banner {
   width:100%;
@@ -13,12 +18,20 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.color{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+height:100%;
 
+}
 .image2{
   width:100%;
   height:20em;
   font-size:2em;
-  background:red;
+  background:rgba(255, 153, 0, 0.54);
 
 
 
@@ -33,13 +46,13 @@
 }
 
 .quote{
-  color:white;
+  color:black;
   margin:1em;
 }
 #bannerText{
   font-size:7em;
   color:white;
-  font-family: 'Roboto', sans-serif;
+  ffont-family: 'Oswald', sans-serif;
   font-weight: 100;
 }
 /*blinking cursor for typed.js*/
@@ -65,9 +78,7 @@
     100% { opacity:1; }
 }
 
-#bold{
-  color:red;
-}
+
 .sidebar-nav {
     top: 0;
     padding: 0;
@@ -78,9 +89,16 @@
 
 .cityInfo{
   text-align:center;
+  background-color: white;
+  color:#424242;
+  font-family: 'Oswald', sans-serif;
+
 
 }
-
+.cityInfo h2{
+  font-size:4em;
+  color:#3299BB;
+}
 button{
   background-color: ;
     color: black;
@@ -91,7 +109,7 @@ button{
 
 #left-quote{
   font-size:12em;
-  color:red;
+  color:#3299BB;
   float:left;
   position:relative;
   top:-0.35em;
@@ -99,24 +117,34 @@ button{
 
 #right-quote{
   font-size:12em;
-  color:red;
+  color:#3299BB;
   float:right;
   position:relative;
   top:-.5em;
   right:.5em;
 }
 
+#person{
+  color:#E9E9E9;
+}
 .incentive-group{
   text-align: center;
 }
 #incentiveHeader{
   text-align: center;
-  font-size:3.5em;
+  font-size:1.5em;
 }
 
 .tiers{
   text-align: center;
-  border: 4px solid blue;
-  border-radius: 5%;
-  margin:3em;
+  border: 1em solid #3299BB;
+  background-color: #424242;
+  margin:2em;
+  color:#FF9900;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25em;
+}
+
+hr{
+  color:#3299BB;
 }

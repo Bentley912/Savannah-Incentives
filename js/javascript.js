@@ -1,6 +1,6 @@
 $(function(){
        $("#typed").typed({
-           strings: ["Come <span id='Bold'>Live</span> In Savannah", "Come Work In Savannah", " Come Grow In Savannah"],
+           strings: ["Come <span id='bold'>Live</span> In Savannah.", "Come <span id='bold'>Work</span> In Savannah.", " Come <span id='bold'>Grow</span> In Savannah."],
            typeSpeed: 20,
            cursorChar: "|*"
        });
