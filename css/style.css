@@ -1,0 +1,150 @@
+body{
+  font-size:16px;
+}
+
+#bold{
+  color:#FF9900;
+  font-weight: bold;
+}
+.banner {
+  width:100%;
+  height:30em;
+  background:
+  url('../images/savannah.png');
+  background-size:cover;
+  text-align: center;
+  background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.color{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+height:100%;
+
+}
+.image2{
+  width:100%;
+  height:20em;
+  font-size:2em;
+  background:rgba(255, 153, 0, 0.54);
+
+
+
+}
+.bg-image{
+  background: url('../images/focus-lab-office.jpg') no-repeat center;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position:relative;
+}
+
+.quote{
+  color:black;
+  margin:1em;
+}
+#bannerText{
+  font-size:7em;
+  color:white;
+  ffont-family: 'Oswald', sans-serif;
+  font-weight: 100;
+}
+/*blinking cursor for typed.js*/
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+.sidebar-nav {
+    top: 0;
+    padding: 0;
+    list-style: none;
+    background-color: grey;
+    float:left;
+}
+
+.cityInfo{
+  text-align:center;
+  background-color: white;
+  color:#424242;
+  font-family: 'Oswald', sans-serif;
+
+
+}
+.cityInfo h2{
+  font-size:4em;
+  color:#3299BB;
+}
+button{
+  background-color: ;
+    color: black;
+  border: 2px solid #4CAF50;
+  padding:1.5em;
+  opacity: 0.6;
+}
+
+#left-quote{
+  font-size:12em;
+  color:#3299BB;
+  float:left;
+  position:relative;
+  top:-0.35em;
+}
+
+#right-quote{
+  font-size:12em;
+  color:#3299BB;
+  float:right;
+  position:relative;
+  top:-.5em;
+  right:.5em;
+}
+
+#person{
+  color:#E9E9E9;
+}
+.incentive-group{
+  text-align: center;
+}
+#incentiveHeader{
+  text-align: center;
+  font-size:1.5em;
+}
+
+.tiers{
+  text-align: center;
+  border: 1em solid #3299BB;
+  background-color: #424242;
+  margin:2em;
+  color:#FF9900;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25em;
+}
+
+hr{
+  color:#3299BB;
+}
