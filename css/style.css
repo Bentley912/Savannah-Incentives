@@ -95,7 +95,7 @@ height:100%;
 
 
 }
-.cityInfo h2{
+.heading{
   font-size:4em;
   color:#3299BB;
 }
@@ -132,17 +132,20 @@ button{
 }
 #incentiveHeader{
   text-align: center;
-  font-size:1.5em;
 }
 
 .tiers{
   text-align: center;
-  border: 1em solid #3299BB;
-  background-color: #424242;
+
+  background-color: #E9E9E9;
   margin:2em;
   color:#FF9900;
   font-family: 'Oswald', sans-serif;
   font-size: 1.25em;
+  border-radius: 5%;
+  -webkit-box-shadow: 24px 29px 29px -17px rgba(50,153,187,0.49);
+  -moz-box-shadow: 24px 29px 29px -17px rgba(50,153,187,0.49);
+  box-shadow: 24px 29px 29px -17px rgba(50,153,187,0.49);
 }
 
 hr{
