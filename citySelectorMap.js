@@ -35,10 +35,18 @@ function initMap() {
 
 
         //creates markers for locations
-        var marker = new google.maps.Marker({
-            position: {lat: JSON.parse(db.coordinateLat), lng: JSON.parse(db.coordinateLng)},
-            map: map
-        });
+        if (db.city === "Savannah") {
+            var marker = new google.maps.Marker({
+                position: {lat: JSON.parse(db.coordinateLat), lng: JSON.parse(db.coordinateLng)},
+                icon: 'Savannah_official_seal.png',
+                map: map
+            })
+        } else {
+            var marker = new google.maps.Marker({
+                position: {lat: JSON.parse(db.coordinateLat), lng: JSON.parse(db.coordinateLng)},
+                map: map
+            })
+        };
 
         //variable to join city and state
         if (db.city === "") {
@@ -71,12 +79,16 @@ function initMap() {
                 infowindow.open(map,marker);
             };
         })(marker,contentString,infowindow));  
+        
+
     }; //end populateMap
 
-
-
-
 } //end initMap
+
+$('window').on('click',"#firstHeading", function(){
+    console.log("Hello world!")
+});
+        
 
 $(document).ready(function() {
 
