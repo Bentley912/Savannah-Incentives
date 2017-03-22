@@ -38,7 +38,7 @@ function initMap() {
         if (db.city === "Savannah") {
             var marker = new google.maps.Marker({
                 position: {lat: JSON.parse(db.coordinateLat), lng: JSON.parse(db.coordinateLng)},
-                icon: 'Savannah_official_seal.png',
+                icon: 'google-marker-o.png',
                 map: map
             })
         } else {
@@ -48,7 +48,7 @@ function initMap() {
             })
         };
 
-        //variable to join city and state
+        //variable to join city and state and create a city data element for onclick functionality with data well
         if (db.city === "") {
             var cityState = db.state;
             var city = cityState
@@ -97,7 +97,7 @@ function initMap() {
 
 //firebase reader
 $("#searcherSub").on("click", function(){
-	searchVal=$(".searcher").val().trim().toLowerCase();
+	searchVal=$("#searcher").val().trim().toLowerCase();
     console.log(searchVal);
 	reader();
 });
