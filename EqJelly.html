@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+</head>
+
+<body>
+
+	<h2>City and State Searcher</h2>
+    	<input type="text" class="searcher">
+    <button id="searcherSub">ENTER</button>
+	<button id="searcherSub2">Other ENTER</button>
+	<button id="clearer">clearer</button>
+
+    <h1>----</h1>
+
+	<table style="width:100%" id="table">
+	<tr>
+		<th>State,<br>City</th>
+		<th>Incentives on Labor %, <br>With Requirements</th>
+		<th>Incentives on Expenditures %,<br>With Requirements</th>
+		<th>Min-Max expenditures required,<br>Type</th>
+		<th>Other</th>
+	</tr>
+	</table>
+
+	
+
+	<h1>----</h1>
+	
+	<h2>Submit State</h2>
+		<input type="text" id="state">
+   	<h2>Submit City</h2>
+    	<input type="text" id="city">
+    <h2>Incentive on labor percentage</h2>
+    	<input type="text" id="laborPer">
+    <h2>Any requirements on labor incentive</h2>
+    	<input type="text" id="laborReq">
+    <h2>Incentive on expenditure percentage</h2>
+    	<input type="text" id="expendPer">
+    <h2>Any requirements on expenditure incentive</h2>
+    	<input type="text" id="expendReq">
+    <h2>Minimum expenditures required</h2>
+    	<input type="text" id="minExpense">
+    <h2>Maximum expenditures required</h2>
+    	<input type="text" id="maxExpense">
+    <h2>Expenditure requirement type</h2>
+    	<input type="text" id="typeExpense">
+    <h2>Other</h2>
+    	<input type="text" id="incentiveOth">
+    <h2>Coordinates Lat</h2>
+    	<input type="text" id="coordinateLat">
+    <h2>Coordinates Lng</h2>
+    	<input type="text" id="coordinateLng">
+    
+    <button id="add">SUBMIT</button>
+
+    
+    <h1>----</h1>
+
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCTjgBGJSHmDQ_I_cEOCj2MJFMQbSyRt-Q",
+    authDomain: "maps-project-2da39.firebaseapp.com",
+    databaseURL: "https://maps-project-2da39.firebaseio.com",
+    storageBucket: "maps-project-2da39.appspot.com",
+    messagingSenderId: "51725429296"
+  };
+  firebase.initializeApp(config);
+
+  var database=firebase.database();
+// End Initialize Firebase
+
+//Firebase adder
+$(add).on("click", function(e){
+
+	e.preventDefault();
+
+	var state = $("#state").val().trim();
+		console.log(state);
+	var city = $("#city").val().trim();
+		console.log(city);
+	var laborPer = $("#laborPer").val().trim();
+		console.log(laborPer);
+	var laborReq = $("#laborReq").val().trim();
+		console.log(laborReq);
+	var expendPer = $("#expendPer").val().trim();
+		console.log(expendPer);
+	var expendReq = $("#expendReq").val().trim();
+		console.log(expendReq);
+	var minExpense = $("#minExpense").val().trim();
+		console.log(minExpense);
+	var maxExpense = $("#maxExpense").val().trim();
+		console.log(maxExpense);
+	var typeExpense = $("#typeExpense").val().trim();
+		console.log(typeExpense);
+	var incentiveOth = $("#incentiveOth").val().trim();
+		console.log(incentiveOth);
+	var coordinateLat = $("#coordinateLat").val().trim();
+		console.log(coordinateLat);
+	var coordinateLng = $("#coordinateLng").val().trim();
+		console.log(coordinateLng);
+
+  var database=firebase.database(); 
+
+    database.ref().push({
+      state: state,
+      city: city,
+      laborPer: laborPer,
+      laborReq: laborReq,
+      expendPer: expendPer,
+      expendReq: expendReq,
+      minExpense: minExpense,
+      maxExpense: maxExpense,
+      typeExpense: typeExpense,
+      incentiveOth: incentiveOth,
+      coordinateLat: coordinateLat,
+      coordinateLng: coordinateLng,
+    });
+
+
+});
+//end firebase adder
+
+$("#searcherSub2").on("click", function(){
+	reader();
+});
+
+//firebase reader
+$("#searcherSub").on("click", function(){
+	searchVal=$(".searcher").val().trim().toLowerCase();
+	reader();
+});
+
+$("#clearer").on("click", function(){
+	$("#table").empty();
+	$("#table").append("<tr>" + 
+		"<th>State,<br>City</th>" +
+		"<th>Incentives on Labor %, <br>With Requirements</th>" +
+		"<th>Incentives on Expenditures %,<br>With Requirements</th>" +
+		"<th>Min-Max expenditures required,<br>Type</th>" +
+		"<th>Other</th>" +
+	"</tr>");
+});
+	
+function reader(){
+	
+	//firebase searcher
+	database.ref().on("child_added", function(childSnapshot) {
+		//console.log(childSnapshot.val());
+
+		//console.log(childSnapshot.val().city);
+  		
+  		if (childSnapshot.val().city.toLowerCase()===searchVal) {
+			
+			console.log("RESULT FOUND");
+
+			newState=childSnapshot.val().state.toLowerCase(); //
+
+			database.ref().on("child_added", function(childSnapshot) {
+				if (newState===childSnapshot.val().state.toLowerCase()){
+					$("#table").append("<tr>" +
+					"<th>" + childSnapshot.val().state + "<br>" + childSnapshot.val().city + "</th>" +
+					"<th>" + childSnapshot.val().laborPer + "%<br>" + childSnapshot.val().laborReq + "</th>" +
+					"<th>" + childSnapshot.val().expendPer + "%<br>" + childSnapshot.val().expendReq + "</th>" +
+					"<th>$" + childSnapshot.val().minExpense + "-" + childSnapshot.val().maxExpense + "<br>" + childSnapshot.val().typeExpense + "</th>" +
+					"<th>" + childSnapshot.val().incentiveOth + "</th>" +
+					"</tr>"
+					);
+				};
+
+
+			});
+  		};
+
+  		if (childSnapshot.val().state.toLowerCase()===searchVal) {
+			console.log("RESULT FOUND");
+
+			//putting stuff on table
+			$("#table").append("<tr>" +
+				"<th>" + childSnapshot.val().state + "<br>" + childSnapshot.val().city + "</th>" +
+				"<th>" + childSnapshot.val().laborPer + "%<br>" + childSnapshot.val().laborReq + "</th>" +
+				"<th>" + childSnapshot.val().expendPer + "%<br>" + childSnapshot.val().expendReq + "</th>" +
+				"<th>$" + childSnapshot.val().minExpense + "-" + childSnapshot.val().maxExpense + "<br>" + childSnapshot.val().typeExpense + "</th>" +
+				"<th>" + childSnapshot.val().incentiveOth + "</th>" +
+			"</tr>"
+			);
+			//end putting stuff on table
+  		};
+	});
+	//end firebase searcher
+};
+//end firebase reader
+
+
+}); //end document on ready
+</script>
+</body>
+</html>
