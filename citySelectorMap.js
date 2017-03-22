@@ -14,9 +14,9 @@ var database = firebase.database();
 
 //map creation function
 function initMap() {
-    var savannah = {lat: 32.076176, lng: -81.088371};
+    var savannah = {lat: 35, lng: -106};
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 7,
+        zoom: 4,
         center: savannah
     });
 
@@ -50,20 +50,22 @@ function initMap() {
 
         //variable to join city and state
         if (db.city === "") {
-            var cityState = db.state
+            var cityState = db.state;
+            var city = cityState
         } else {
-            var cityState = [db.city, db.state].join(", ")
+            var cityState = [db.city, db.state].join(", ");
+            var city = db.city
         };
         
 
         //text for infowindows
         var contentString = '<div id="content">'+
-        '<h1 id="firstHeading" class="firstHeading">' + cityState + '</h1>'+
+        '<h1 data-city="' + city + '" id="firstHeading" class="firstHeading heading">' + cityState + '</h1>'+
         '<h3>Incentives</h3>' +
         '<div id="bodyContent">'+
         '<ul>' +
-        '<li>Expenditure Percentage: ' + db.expendPer + '</li>' +
-        '<li>Labor Percentage: ' + db.laborPer + '</li>' +
+        '<li>Expenditure Tax Credit Percentage: ' + db.expendPer + '</li>' +
+        '<li>Labor Tax Credit Percentage: ' + db.laborPer + '</li>' +
         '<li>Type of requirement: ' + db.typeExpense + '</li>' +
         '<li>Minimum Expense Requirement: ' + db.minExpense + '</li>' +
         '<li>Maximum Expense Requirement: ' + db.maxExpense + '</li>' +
@@ -83,27 +85,32 @@ function initMap() {
 
     }; //end populateMap
 
-} //end initMap
+    jQuery(document).on('click', '.heading', function(event){
+        console.log("heading clicked");
+        searchVal=$(this).attr("data-city").trim().toLowerCase();
+        console.log($(this).text());
+        reader();
+    });
 
-$('window').on('click',"#firstHeading", function(){
-    console.log("Hello world!")
-});
-        
+}; //end initMap
 
-$(document).ready(function() {
 
 //firebase reader
-$(searcherSub).on("click", function(e){
-
-	e.preventDefault();
-
+$("#searcherSub").on("click", function(){
+	searchVal=$(".searcher").val().trim().toLowerCase();
+    console.log(searchVal);
+	reader();
+});
+	
+function reader(){
+	
 	//firebase searcher
 	database.ref().on("child_added", function(childSnapshot) {
 		//console.log(childSnapshot.val());
 
 		//console.log(childSnapshot.val().city);
   		
-  		if (childSnapshot.val().city.toLowerCase()===$("#searcher").val().trim().toLowerCase()) {
+  		if (childSnapshot.val().city.toLowerCase()===searchVal) {
 			
 			console.log("RESULT FOUND");
 
@@ -125,7 +132,7 @@ $(searcherSub).on("click", function(e){
 			});
   		};
 
-  		if (childSnapshot.val().state.toLowerCase()===$("#searcher").val().trim().toLowerCase()) {
+  		if (childSnapshot.val().state.toLowerCase()===searchVal) {
 			console.log("RESULT FOUND");
 
 			//putting stuff on table
@@ -141,10 +148,6 @@ $(searcherSub).on("click", function(e){
   		};
 	});
 	//end firebase searcher
-
-});
+};
 //end firebase reader
 
-
-
-}); //end document on ready
