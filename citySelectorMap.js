@@ -105,6 +105,17 @@ $("#searcherSub").on("click", function(){
     console.log(searchVal);
 	reader();
 });
+
+$("#clearer").on("click", function(){
+    $("#table").empty();
+    $("#table").append("<tr>" + 
+        "<th>State,<br>City</th>" +
+        "<th>Incentives on Labor %, <br>With Requirements</th>" +
+        "<th>Incentives on Expenditures %,<br>With Requirements</th>" +
+        "<th>Min-Max expenditures required,<br>Type</th>" +
+        "<th>Other</th>" +
+    "</tr>");
+});
 	
 function reader(){
 	
