@@ -38,7 +38,7 @@ function initMap() {
         if (db.city === "Savannah") {
             var marker = new google.maps.Marker({
                 position: {lat: JSON.parse(db.coordinateLat), lng: JSON.parse(db.coordinateLng)},
-                icon: 'google-marker-o.png',
+                icon: 'marker50px.png',
                 map: map
             })
         } else {
