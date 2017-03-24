@@ -107,14 +107,13 @@ $("#searcherSub").on("click", function(){
 });
 
 $("#clearer").on("click", function(){
-    $("#table").empty();
-    $("#table").append("<tr>" + 
-        "<th>State,<br>City</th>" +
-        "<th>Incentives on Labor %, <br>With Requirements</th>" +
-        "<th>Incentives on Expenditures %,<br>With Requirements</th>" +
-        "<th>Min-Max expenditures required,<br>Type</th>" +
-        "<th>Other</th>" +
-    "</tr>");
+    $("#table").html("<tbody>" + "<tr>" + 
+        "<th class='thead-inverse'>State,<br>City</th>" +
+        "<th class='thead-inverse'>Tax Incentives on Labor %, <br>With Requirements or Alternative Incentives</th>" +
+        "<th class='thead-inverse'>Tax Incentives on Expenditures %,<br>With Requirements or Alternative Incentives</th>" +
+        "<th class='thead-inverse'>Min-Max expenditures required,<br>Type or Alternative Requirements</th>" +
+        "<th class='thead-inverse'>Other</th>" +
+        "</tr>");
 });
 	
 function reader(){
