@@ -86,12 +86,13 @@ function initMap() {
 
     }; //end populateMap
 
+    //on button click, add city data to the data-well and auto scroll to the bottom
     jQuery(document).on('click', '#addDetails', function(event){
         console.log("addDetails clicked");
         searchVal=$(this).attr("data-city").trim().toLowerCase();
         console.log($(this).text());
         $('html, body').animate({
-        scrollTop: $("#table").offset().top
+        scrollTop: $("#clearer").offset().top
         }, 1000);
         reader();
     });
