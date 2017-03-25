@@ -130,7 +130,7 @@ button{
   color:#3299BB;
   float:right;
   position:absolute;
-  top:-.5em;
+  bottom: .6em;
   right:.5em;
 }
 
@@ -178,11 +178,11 @@ ul{
 }
 
 .table{
-  border:2px solid orange;
-
+  border:4px solid orange;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: #BCBCBC;
 
 }
 
@@ -199,10 +199,10 @@ ul{
   background: #FF9900;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-
+  margin-bottom: 1em;
 }
 
-#compareButton{
+.compareButton{
   -webkit-animation: vibrate-1 0.3s linear infinite both;
 	-moz-animation: vibrate-1 0.3s linear infinite both;
 	animation: vibrate-1 0.3s linear infinite both;
@@ -230,4 +230,8 @@ ul{
 
 #clearer {
   margin-bottom: 20px;
+}
+
+.instructions{
+  color:#E9E9E9;
 }
