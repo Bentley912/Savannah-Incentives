@@ -38,7 +38,7 @@ function initMap() {
         if (db.city === "Savannah") {
             var marker = new google.maps.Marker({
                 position: {lat: JSON.parse(db.coordinateLat), lng: JSON.parse(db.coordinateLng)},
-                icon: 'Savannah_official_seal.png',
+                icon: 'marker50px.png',
                 map: map
             })
         } else {
@@ -48,10 +48,10 @@ function initMap() {
             })
         };
 
-        //variable to join city and state
+        //variable to join city and state and create a city data element for onclick functionality with data well
         if (db.city === "") {
             var cityState = db.state;
-            var city = cityState
+            var city = db.state
         } else {
             var cityState = [db.city, db.state].join(", ");
             var city = db.city
@@ -60,7 +60,7 @@ function initMap() {
 
         //text for infowindows
         var contentString = '<div id="content">'+
-        '<h1 data-city="' + city + '" id="firstHeading" class="firstHeading heading">' + cityState + '</h1>'+
+        '<h1 id="firstHeading" class="firstHeading heading">' + cityState + '</h1>'+
         '<h3>Incentives</h3>' +
         '<div id="bodyContent">'+
         '<ul>' +
@@ -71,6 +71,7 @@ function initMap() {
         '<li>Maximum Expense Requirement: ' + db.maxExpense + '</li>' +
         '<ul>' +
         '</div>'+
+        '<button data-city="' + city + '" id="addDetails">Click here to compare details below</button>' +
         '</div>';
 
         //When a map marker is clicked, open an infowindow
@@ -85,10 +86,14 @@ function initMap() {
 
     }; //end populateMap
 
-    jQuery(document).on('click', '.heading', function(event){
-        console.log("heading clicked");
+    //on button click, add city data to the data-well and auto scroll to the bottom
+    jQuery(document).on('click', '#addDetails', function(event){
+        console.log("addDetails clicked");
         searchVal=$(this).attr("data-city").trim().toLowerCase();
         console.log($(this).text());
+        $('html, body').animate({
+        scrollTop: $("#clearer").offset().top
+        }, 1000);
         reader();
     });
 
@@ -97,9 +102,19 @@ function initMap() {
 
 //firebase reader
 $("#searcherSub").on("click", function(){
-	searchVal=$(".searcher").val().trim().toLowerCase();
+	searchVal=$("#searcher").val().trim().toLowerCase();
     console.log(searchVal);
 	reader();
+});
+
+$("#clearer").on("click", function(){
+    $("#table").html("<tbody>" + "<tr>" + 
+        "<th class='thead-inverse'>State,<br>City</th>" +
+        "<th class='thead-inverse'>Tax Incentives on Labor %, <br>With Requirements or Alternative Incentives</th>" +
+        "<th class='thead-inverse'>Tax Incentives on Expenditures %,<br>With Requirements or Alternative Incentives</th>" +
+        "<th class='thead-inverse'>Min-Max expenditures required,<br>Type or Alternative Requirements</th>" +
+        "<th class='thead-inverse'>Other</th>" +
+        "</tr>");
 });
 	
 function reader(){

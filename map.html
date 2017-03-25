@@ -33,19 +33,28 @@
     </div>
 <div class="row map-bg">
 
-      <h2 class="heading2" data-to="0">City Searcher</h2>
-                	<input type="text" id="searcher">
-                <button id="searcherSub">ENTER</button>
+      <h2 class="heading2" data-to="0">City Search</h2>
+      <h3>Search for particular cities and states below, or search geographically using the above map!</h3>
+                <input type="text" id="searcher" placeholder="Enter City or State">
+                <button id="searcherSub">ADD TO TABLE</button>
 
-                  <table class="table" id="table">
+
+
+
+
+                  <table class="table table-striped" id="table">
+                  <tbody>
+
                   <tr>
                     <th class="thead-inverse">State,<br>City</th>
-                    <th class="thead-inverse">Incentives on Labor %, <br>With Requirements</th>
-                    <th class="thead-inverse">Incentives on Expenditures %,<br>With Requirements</th>
-                    <th class="thead-inverse">Min-Max expenditures required,<br>Type</th>
+                    <th class="thead-inverse">Tax Incentives on Labor %, <br>With Requirements or Alternative Incentives</th>
+                    <th class="thead-inverse">Tax Incentives on Expenditures %,<br>With Requirements or Alternative Incentives</th>
+                    <th class="thead-inverse">Min-Max expenditures required,<br>Type or Alternative Requirements</th>
                     <th class="thead-inverse">Other</th>
                   </tr>
+                  </tbody>
                   </table>
+                <button id="clearer">CLEAR RESULTS</button>
         </div>
 
   <script async defer

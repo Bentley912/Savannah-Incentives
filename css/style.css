@@ -179,6 +179,7 @@ ul{
 
 .table{
   border:2px solid orange;
+
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -222,4 +223,11 @@ ul{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+  margin-top: 20px;
+
+}
+
+#clearer {
+  margin-bottom: 20px;
 }
