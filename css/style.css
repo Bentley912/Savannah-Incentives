@@ -49,7 +49,7 @@ height:100%;
 
 .quote{
   color:black;
-  margin:1em;
+  margin:2em;
 }
 #bannerText{
   font-size:7em;
@@ -122,7 +122,7 @@ button{
   color:#3299BB;
   float:left;
   position:relative;
-  top:-0.35em;
+  top:.25em;
 }
 
 #right-quote{
@@ -136,6 +136,7 @@ button{
 
 #person{
   color:#E9E9E9;
+  margin-top: 3em;
 }
 .incentive-group{
   text-align: center;
@@ -167,6 +168,7 @@ hr{
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
 }
 
 ul{
@@ -177,7 +179,53 @@ ul{
 
 .table{
   border:2px solid orange;
+
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 5px 5px 0px #666666;
+  -moz-box-shadow: 5px 5px 0px #666666;
+  box-shadow: 5px 5px 0px #666666;
+  font-family: Arial;
+  color: ;
+  font-size: 20px;
+  background: #FF9900;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+
+}
+
+#compareButton{
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+	-moz-animation: vibrate-1 0.3s linear infinite both;
+	animation: vibrate-1 0.3s linear infinite both;
+}
+.btn:hover {
+  background: #424242;
+  text-decoration: none;
+}
+
+
+
+.map-body{
+  background:
+  url('../images/savannah.png');
+  background-size:cover;
+  text-align: center;
+  background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
   margin-top: 20px;
+
 }
 
 #clearer {
